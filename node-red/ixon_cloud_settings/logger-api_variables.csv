@@ -1,0 +1,4 @@
+Identifier,Name,Address,Type,Width,Signed,Max string length,Factor,Unit
+altitude,altitude,altitude,float,32,,,,meters
+latitude,latitude,latitude,float,32,,,,degrees
+longitude,longitude,longitude,float,32,,,,degrees
