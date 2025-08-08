@@ -1,9 +1,5 @@
 # Edge App - GPS Data Logger for SecureEdge Pro
 
-## Prerequisites
-
-Ensure your environment is properly set up by following this guide: [Running custom Docker applications on the SecureEdge Pro](https://support.ixon.cloud/s/article/Running-custom-Docker-applications-on-the-SecureEdge-Pro).
-
 This project provides a ready-to-deploy solution for logging GPS data on IXON's SecureEdge Pro device (**Cellular** and **Combi** variants only). It uses Node-RED to collect GPS data and send it to IXON Cloud via the Plain-text TCP protocol.
 
 > **Note:** This solution is only available on SecureEdge Pro devices with cellular or combi modules. It requires an open sky environment and a connected GPS antenna.
@@ -22,6 +18,7 @@ This project provides a ready-to-deploy solution for logging GPS data on IXON's 
 - GPS antenna connected and device placed with open sky access
 - IXON Cloud account
 - Access to the SecureEdge Pro local web interface
+- Ensure your environment is properly set up by following this guide: [Running custom Docker applications on the SecureEdge Pro](https://support.ixon.cloud/s/article/Running-custom-Docker-applications-on-the-SecureEdge-Pro).
 
 ## Quick Start
 
