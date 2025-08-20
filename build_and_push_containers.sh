@@ -2,7 +2,7 @@
 
 # Build and push GPS Logger containers to SecureEdge Pro
 # Output executed commands and stop on errors.
-set -e -x
+set -e
 
 # Uncomment the following line should the edge gateway have been
 # given a different IP address.
