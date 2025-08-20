@@ -35,12 +35,10 @@ This project provides a ready-to-deploy solution for logging GPS data on IXON's 
 
 - For Unix-based systems:
   ```bash
-  ./setup-buildx-env.sh
   ./build_and_push_containers.sh
   ```
 - For Windows:
   ```cmd
-  setup-buildx-env.cmd
   build_and_push_containers.cmd
   ```
 
