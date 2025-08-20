@@ -52,7 +52,12 @@ This project provides a ready-to-deploy solution for logging GPS data on IXON's 
 ### 4. Access Node-RED
 
 - In IXON Cloud, create an HTTP Web Server to access the Node-RED web interface.
-- Open Node-RED and review or adjust the flow for GPS data collection and transmission.
+- Open Node-RED and log in using the default credentials:
+  - **Username:** `admin`
+  - **Password:** `password`
+- Review or adjust the flow for GPS data collection and transmission.
+
+> **Security Note:** For production use, it's highly recommended to change the default password. See the [Node-RED Authentication](#node-red-authentication) section below for instructions.
 
 ### 5. Configure IXON Cloud: Data Source and Variables
 
@@ -106,6 +111,63 @@ Refer to the screenshot below for the correct container setup:
 - Ensure the GPS antenna is properly connected and the device has a clear view of the sky.
 - Only Cellular and Combi variants of SecureEdge Pro support GPS logging.
 - For further help, consult the [IXON Support Portal](https://support.ixon.cloud/).
+
+## Node-RED Authentication
+
+### Default Credentials
+
+The Node-RED instance comes with authentication enabled using these default credentials:
+
+- **Username:** `admin`
+- **Password:** `password`
+
+### Changing the Default Password
+
+For security reasons, it's strongly recommended to change the default password, especially for production deployments.
+
+#### Method 1: Using node-red-admin (Recommended)
+
+1. Install Node-RED locally on your development machine:
+
+   ```bash
+   npm install -g node-red node-red-admin
+   ```
+
+2. Generate a new password hash:
+
+   ```bash
+   node-red-admin hash-pw
+   ```
+
+   Enter your desired password when prompted. This will output a bcrypt hash.
+
+3. Edit the `node-red/settings.js` file in this project and replace the password hash:
+
+   ```javascript
+   adminAuth: {
+     type: 'credentials',
+     users: [
+       {
+         username: 'admin',
+         password: 'YOUR_NEW_HASH_HERE',
+         permissions: '*',
+       },
+     ],
+   },
+   ```
+
+4. Rebuild and redeploy the container using the build scripts.
+
+#### Method 2: Online Bcrypt Generator
+
+If you prefer not to install Node-RED locally:
+
+1. Use an online bcrypt hash generator (ensure it uses cost factor 8 or higher)
+2. Generate a hash for your desired password
+3. Replace the hash in `node-red/settings.js` as shown above
+4. Rebuild and redeploy the container
+
+> **Important:** After changing the password, you'll need to rebuild the Docker container and redeploy it to your SecureEdge Pro device for the changes to take effect.
 
 ## License
 
