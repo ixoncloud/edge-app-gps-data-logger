@@ -44,10 +44,21 @@ This project provides a ready-to-deploy solution for logging GPS data on IXON's 
 
 ### 3. Deploy on SecureEdge Pro
 
-- Access the SecureEdge Pro local web interface.
-- Create and configure the following container:
-  - **node-red-gps-logger**: Expose port `1880:1880`, mount volume `node_red_data` to `/data`
-- Start the container.
+1. Access the SecureEdge Pro local web interface.
+2. Create and configure a new container for Node-RED:
+   - **Image:** Use the Node-RED image provided in this project (`node-red-gps-logger`)
+   - **Port mapping:** `1880:1880`
+   - **Volume:** `node_red_data` → `/data`
+
+Refer to the screenshot below for the correct container setup:
+
+![Node-RED Container Setup](node-red/secure_edge_pro_settings/node-red.png)
+
+3. Start the container and access the Node-RED web interface (via IXON Cloud HTTP Web Server or local network).
+4. Open the Node-RED flow and ensure it:
+   - Collects GPS data from the hardware
+   - Establishes a TCP connection to the edge gateway on port `9230`
+   - Uses the same addresses as configured in IXON Cloud variables
 
 ### 4. Access Node-RED
 
@@ -84,24 +95,7 @@ Refer to the screenshot below for the correct data source setup:
 Refer to the screenshot below for the correct variable import setup:
 ![Variable Import Setup](node-red/ixon_cloud_settings/variables.png)
 
-### 6. Set Up Node-RED on SecureEdge Pro
-
-1. In the SecureEdge Pro local web interface, create a new container for Node-RED:
-   - Image: Use the Node-RED image provided in this project.
-   - Port mapping: `1880:1880`
-   - Volume: `node_red_data` → `/data`
-
-Refer to the screenshot below for the correct container setup:
-
-![Node-RED Container Setup](node-red/secure_edge_pro_settings/node-red.png)
-
-2. Start the container and access the Node-RED web interface (via IXON Cloud HTTP Web Server or local network).
-3. Open the Node-RED flow and ensure it:
-   - Collects GPS data from the hardware
-   - Establishes a TCP connection to the edge gateway on port `9230`
-   - Uses the same addresses as configured in IXON Cloud variables
-
-### 7. Test and Visualize GPS Data
+### 6. Test and Visualize GPS Data
 
 - In IXON Cloud, use the **Run test** feature on your data source to verify that data is being received from Node-RED.
 - Use IXON Cloud dashboards to visualize and analyze the logged GPS data in real time or historically.
