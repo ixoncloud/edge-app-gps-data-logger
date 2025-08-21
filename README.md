@@ -76,7 +76,7 @@ Refer to the screenshot below for the correct container setup:
 
 1. In IXON Cloud, go to your device and add a new data source of type **Plain-text TCP**.
 2. Enter a name (e.g., `GPS Logger`).
-3. Leave the IP address empty if using IXagent, otherwise enter your machine's IP.
+3. Leave the IP address empty.
 4. Set a password (at least 6 characters) — The Node-RED flow uses 123456 as default password in the Build DEVC Line node. These passwords must match.
 5. (Optional) Set polling sleep time (e.g., 100ms) and error grace period as needed.
 6. Click **Add** to create the data source.
